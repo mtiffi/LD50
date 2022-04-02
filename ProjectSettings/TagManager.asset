@@ -43,6 +43,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Shield
+    uniqueID: 3675287553
+    locked: 0
+  - name: Satelite
+    uniqueID: 2889126735
+    locked: 0
   - name: Explosion
     uniqueID: 1102883879
+    locked: 0
+  - name: Player
+    uniqueID: 743252793
     locked: 0

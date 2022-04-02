@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Earth : MonoBehaviour
 {
+    public float rotationSpeed;
 
     // Start is called before the first frame update
     void Start()
@@ -15,7 +16,7 @@ public class Earth : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        transform.Rotate(new Vector3(0,0,1));
+        transform.Rotate(new Vector3(0,0, rotationSpeed));
     }
 
 
