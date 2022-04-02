@@ -11,6 +11,7 @@ public class Shield : MonoBehaviour
     private bool up = true;
     public float lightFlickerSpeed;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,25 +22,30 @@ public class Shield : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if(light2D.intensity < 3 && up)
+        Flicker(); 
+
+    }
+
+    void Flicker()
+    {
+        if (light2D.intensity < 3 && up)
         {
             light2D.intensity += lightFlickerSpeed;
         }
 
-        if(light2D.intensity >= 3 && up)
+        if (light2D.intensity >= 3 && up)
         {
             up = false;
         }
 
-        if(light2D.intensity > 1.5f && !up)
+        if (light2D.intensity > 1.5f && !up)
         {
             light2D.intensity -= lightFlickerSpeed;
         }
-        if(light2D.intensity <= 1.5f && !up)
+        if (light2D.intensity <= 1.5f && !up)
         {
             up = true;
         }
-
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -48,8 +54,23 @@ public class Shield : MonoBehaviour
         if (collision.collider.tag == "Asteroid")
         {
             collision.gameObject.GetComponent<Asteroid>().Die();
-            shake.shakeDuration = screenShakeDuration;
-            Destroy(gameObject);
+            Die();
         }
+    }
+
+    public void Die()
+    {
+        shake.shakeDuration = screenShakeDuration;
+        GetComponent<PolygonCollider2D>().enabled = false;
+        lightFlickerSpeed = .2f;
+
+        Invoke("DestroyMe", 2f);
+
+    }
+
+    void DestroyMe()
+    {
+        Destroy(gameObject);
+
     }
 }
