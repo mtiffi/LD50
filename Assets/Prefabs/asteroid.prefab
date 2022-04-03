@@ -120,7 +120,6 @@ MonoBehaviour:
   angularSpeed: 0
   Explosion: {fileID: 5478186612172869547, guid: 6b9f327ec988a6742b733a051066597a, type: 3}
   Smoke: {fileID: 7435369867704579527, guid: 274700f4647717c49b643689088bebad, type: 3}
-  highscore: {fileID: 0}
   currentAstroidType: 0
 --- !u!50 &2369160912754652344
 Rigidbody2D:
