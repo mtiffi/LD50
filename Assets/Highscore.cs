@@ -1,22 +1,44 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class Highscore : MonoBehaviour
 {
-    TextMeshProUGUI text;
-    public int highscore = 0;
 
+    public int highscore = 0;
+    public string playerName;
+    private TextMeshProUGUI text;
+    private float pointTimer;
+
+    private GameObject player;
     // Start is called before the first frame update
     void Start()
     {
-        text = GetComponent<TextMeshProUGUI>();
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        text.SetText(highscore.ToString());
+        if (!text)
+        {
+            GameObject textHolder = GameObject.Find("HighscoreText");
+            if (textHolder)
+                text = textHolder.GetComponent<TextMeshProUGUI>();
+        }
+ 
+        if (text)
+            text.text = highscore.ToString();
+    }
+
+    public void AddToHighscore(int score)
+    {
+        highscore += score;
+    }
+
+    private void Awake()
+    {
+        DontDestroyOnLoad(this);
     }
 }

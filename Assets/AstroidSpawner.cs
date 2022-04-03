@@ -15,7 +15,7 @@ public class AstroidSpawner : MonoBehaviour
     public float speed;
     public float angularSpeed;
     private float chanceNormal = 20, chanceBig = 0, chanceFast = 0, chanceHuge = 0, chanceMiss = 80;
-    public Highscore highscore;
+    private Highscore highscore;
 
     public enum Level
     {
@@ -42,6 +42,8 @@ public class AstroidSpawner : MonoBehaviour
     void Start()
     {
         Earth = GameObject.FindGameObjectWithTag("Earth");
+        highscore = GameObject.Find("Highscore").GetComponent<Highscore>();
+
     }
 
     // Update is called once per frame

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Lifes : MonoBehaviour
 {
@@ -34,6 +35,7 @@ public class Lifes : MonoBehaviour
 
             }
             onGameOver?.Invoke();
+            Invoke("GameOver", 5);
 
         }
         return lifes;
@@ -58,6 +60,11 @@ public class Lifes : MonoBehaviour
             return RandomPointOnCircleEdge(radius);
 
         return new Vector3(vector2.x, vector2.y, 0);
+    }
+
+    private void GameOver()
+    {
+        SceneManager.LoadScene("Highscore");
     }
 
     private void Explode()
