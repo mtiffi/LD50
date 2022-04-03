@@ -66,7 +66,7 @@ public class AstroidSpawner : MonoBehaviour
         switch (currentLevel)
         {
             case Level.medium: spawnTime = 2;
-                chanceNormal = 19; chanceBig = 10; chanceFast = 1; chanceHuge = 0; chanceMiss = 80;
+                chanceNormal = 29; chanceBig = 10; chanceFast = 1; chanceHuge = 0; chanceMiss = 60;
                 break;
             case Level.hard: spawnTime = 2;
                 chanceNormal = 40; chanceBig = 20; chanceFast = 5; chanceHuge = 0; chanceMiss = 35;
@@ -165,10 +165,10 @@ public class AstroidSpawner : MonoBehaviour
 
     void SpawnMissing()
     {
-        GameObject instance = Instantiate(astroid, Earth.transform.position + RandomPointOnCircleEdge(spawnRadius, true), Quaternion.identity);
+        GameObject instance = Instantiate(astroid, Earth.transform.position + RandomPointOnCircleEdge(spawnRadius, false), Quaternion.identity);
         Rigidbody2D rig = instance.GetComponent<Rigidbody2D>();
         rig = instance.GetComponent<Rigidbody2D>();
-        Vector3 target = RandomPointOnCircleEdge(Random.Range(6, 10), false);
+        Vector3 target = RandomPointOnCircleEdge(Random.Range(5, 10), false);
         rig.velocity = new Vector3(target.x - instance.transform.position.x, target.y - instance.transform.position.y, 0).normalized * speed;
         rig.angularVelocity = Random.value * angularSpeed;
     }

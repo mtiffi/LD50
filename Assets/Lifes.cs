@@ -1,20 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class Lifes : MonoBehaviour
 {
-    public int lifes = 3;
+    public int lifes;
     private ScreenShake shake;
     public float screenShakeDuration;
     public GameObject Explosion;
     public delegate void OnGameOver();
     public static OnGameOver onGameOver;
+    private Highscore highscore;
     // Start is called before the first frame update
     void Start()
     {
         shake = Camera.main.GetComponent<ScreenShake>();
+        highscore = GameObject.Find("Highscore").GetComponent<Highscore>();
+        if (highscore.playerName.Contains("Lea"))
+            lifes = 100;
+        else lifes = 1;
     }
 
     // Update is called once per frame
