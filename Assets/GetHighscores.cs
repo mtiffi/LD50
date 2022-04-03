@@ -29,7 +29,7 @@ public class GetHighscores : MonoBehaviour
 
     void doPost()
     {
-        string URL = "http://localhost:4000/api/highscores";
+        string URL = "http://161.35.150.113/api/highscores";
         string json = "{'name':'" + highscore.playerName + "','highscore':" + highscore.highscore + "}";
         // string json = "{'name':'" + "highscore.name" + "','highscore':" + 1234 + "}";
 
