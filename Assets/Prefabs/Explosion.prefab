@@ -14663,13 +14663,13 @@ MonoBehaviour:
   m_Intensity: 2
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
-  m_ApplyToSortingLayers: 000000004f9334ac27acbc41
+  m_ApplyToSortingLayers: 00000000017010db4f9334ac27acbc4139234d2c
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
   m_OverlapOperation: 0
   m_NormalMapDistance: 3
-  m_NormalMapQuality: 2
+  m_NormalMapQuality: 1
   m_UseNormalMap: 0
   m_ShadowIntensityEnabled: 0
   m_ShadowIntensity: 0.75
@@ -14742,6 +14742,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5478186612172869546}
+  - component: {fileID: 7258402873683594738}
   m_Layer: 0
   m_Name: Explosion
   m_TagString: Untagged
@@ -14768,3 +14769,15 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7258402873683594738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5478186612172869547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 145e58c106be19a41a0866bbad4060b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

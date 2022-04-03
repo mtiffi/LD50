@@ -26,6 +26,16 @@ public class Satellite : MonoBehaviour
         shield = GetComponentInParent<Shield>();
     }
 
+    private void OnEnable()
+    {
+        Lifes.onGameOver += Die;
+    }
+
+    private void OnDisable()
+    {
+        Lifes.onGameOver -= Die;
+    }
+
     // Update is called once per frame
     void FixedUpdate()
     {

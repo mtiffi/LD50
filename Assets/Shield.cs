@@ -28,21 +28,21 @@ public class Shield : MonoBehaviour
 
     void Flicker()
     {
-        if (light2D.intensity < 3 && up)
+        if (light2D.intensity < 7 && up)
         {
             light2D.intensity += lightFlickerSpeed;
         }
 
-        if (light2D.intensity >= 3 && up)
+        if (light2D.intensity >= 7 && up)
         {
             up = false;
         }
 
-        if (light2D.intensity > 1.5f && !up)
+        if (light2D.intensity > 4f && !up)
         {
             light2D.intensity -= lightFlickerSpeed;
         }
-        if (light2D.intensity <= 1.5f && !up)
+        if (light2D.intensity <= 4f && !up)
         {
             up = true;
         }

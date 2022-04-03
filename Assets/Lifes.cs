@@ -8,6 +8,8 @@ public class Lifes : MonoBehaviour
     private ScreenShake shake;
     public float screenShakeDuration;
     public GameObject Explosion;
+    public delegate void OnGameOver();
+    public static OnGameOver onGameOver;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,6 +33,7 @@ public class Lifes : MonoBehaviour
                 Invoke("Explode", i*.5f);
 
             }
+            onGameOver?.Invoke();
 
         }
         return lifes;
