@@ -50,32 +50,32 @@ public class AstroidSpawner : MonoBehaviour
         if (!spawn)
             return;
 
-        if (highscore.highscore > 100)
+        if (highscore.highscore > 50)
             currentLevel = Level.medium;
-        if (highscore.highscore > 500)
+        if (highscore.highscore > 200)
             currentLevel = Level.hard;
-        if (highscore.highscore > 3000)
+        if (highscore.highscore > 500)
             currentLevel = Level.harder;
-        if (highscore.highscore > 5000)
+        if (highscore.highscore > 2000)
             currentLevel = Level.bossmode;
-        if (highscore.highscore > 10000)
+        if (highscore.highscore > 4000)
             currentLevel = Level.insane;
 
         switch (currentLevel)
         {
-            case Level.medium: spawnTime = 5;
+            case Level.medium: spawnTime = 2;
                 chanceNormal = 19; chanceBig = 10; chanceFast = 1; chanceHuge = 0; chanceMiss = 80;
                 break;
-            case Level.hard: spawnTime = 4;
+            case Level.hard: spawnTime = 2;
                 chanceNormal = 40; chanceBig = 20; chanceFast = 5; chanceHuge = 0; chanceMiss = 35;
                 break;
-            case Level.harder: spawnTime = 3;
+            case Level.harder: spawnTime = 1.5f;
                 chanceNormal = 20; chanceBig = 20; chanceFast = 10; chanceHuge = 10; chanceMiss = 40;
                 break;
-            case Level.bossmode: spawnTime = 2;
+            case Level.bossmode: spawnTime = 1f;
                 chanceNormal = 20; chanceBig = 20; chanceFast = 10; chanceHuge = 10; chanceMiss = 40;
                 break;
-            case Level.insane: spawnTime = 1;
+            case Level.insane: spawnTime = .5f;
                 chanceNormal = 0; chanceBig = 0; chanceFast = 100; chanceHuge = 0; chanceMiss = 0;
                 break;
         }
@@ -132,6 +132,7 @@ public class AstroidSpawner : MonoBehaviour
         GameObject instance = Instantiate(astroid, Earth.transform.position + RandomPointOnCircleEdge(spawnRadius, false), Quaternion.identity);
         instance.transform.localScale = new Vector3(.5f, .5f, .5f); 
         instance.GetComponent<Asteroid>().currentAstroidType = Asteroid.AstroidType.fast;
+        instance.GetComponent<SpriteRenderer>().color = Color.red;
         Rigidbody2D rig = instance.GetComponent<Rigidbody2D>();
         rig = instance.GetComponent<Rigidbody2D>();
         rig.velocity = new Vector3(Earth.transform.position.x - instance.transform.position.x, Earth.transform.position.y - instance.transform.position.y, 0).normalized * speed*2;

@@ -103,7 +103,7 @@ public class Asteroid : MonoBehaviour
                 highscore.highscore += 500;
                 break;
             case AstroidType.huge:
-                highscore.highscore += 500;
+                highscore.highscore += 300;
                 break;
         }
 

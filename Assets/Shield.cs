@@ -10,6 +10,7 @@ public class Shield : MonoBehaviour
     private Light2D light2D;
     private bool up = true;
     public float lightFlickerSpeed;
+    private AudioSource audio;
 
 
     // Start is called before the first frame update
@@ -17,6 +18,7 @@ public class Shield : MonoBehaviour
     {
         shake = Camera.main.GetComponent<ScreenShake>();
         light2D = GetComponentInChildren<Light2D>();
+        audio = Camera.main.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -63,6 +65,7 @@ public class Shield : MonoBehaviour
         shake.shakeDuration = screenShakeDuration;
         GetComponent<PolygonCollider2D>().enabled = false;
         lightFlickerSpeed = .2f;
+        audio.Play();
 
         Invoke("DestroyMe", 2f);
 
